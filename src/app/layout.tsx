@@ -30,6 +30,9 @@ export const metadata: Metadata = {
   },
 };
 
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -37,7 +40,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans w-full overflow-x-hidden">{children}</body>
+      <body className="min-h-full flex flex-col font-sans w-full overflow-x-hidden">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

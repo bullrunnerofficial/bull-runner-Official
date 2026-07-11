@@ -95,6 +95,7 @@ export default function About() {
 
           {/* Heading */}
           <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+            <span className="text-accent-red block text-xl mb-3 tracking-wide uppercase font-bold">Welcome to BULL RUNNER</span>
             <span className="text-text-primary">Trader. Mentor.</span>
             <br />
             <span className="gradient-text-red">Market Analyst.</span>
@@ -102,16 +103,14 @@ export default function About() {
 
           {/* Paragraph */}
           <p className="text-text-muted text-lg leading-relaxed mb-4 max-w-lg">
-            I&apos;m Bull Runner — a full-time trader and market educator. From
-            a photographer to a trader, I turned{" "}
-            <span className="text-accent-blue font-semibold">₹50K into ₹25 Lakhs</span>{" "}
-            at age 22. Trading the Indian markets for the past{" "}
-            <span className="text-text-primary font-semibold">4+ years</span>,
-            specializing in scalping, option buying, and IPO investing.
+            I am a stock market trader and IPO investor with a strong interest in financial markets and wealth creation. My investment philosophy combines technical analysis, fundamental research, and disciplined risk management to identify high-potential opportunities.
           </p>
           <p className="text-text-muted text-base leading-relaxed mb-8 max-w-lg">
-            My mission is to help traders develop the right mindset, master price
-            action and build consistent profitability in the markets.
+            We primarily focus on <span className="text-accent-blue font-semibold">Quick gains</span>. Quick gains are possible in two ways:
+            <br />
+            <span className="inline-block mt-2 font-medium text-text-primary">1. Trading</span>
+            <br />
+            <span className="inline-block mt-1 font-medium text-text-primary">2. IPO investment</span>
           </p>
 
           {/* Journey Highlight */}

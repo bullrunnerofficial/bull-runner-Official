@@ -103,11 +103,25 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-lg text-text-muted leading-relaxed max-w-lg mb-8"
+              className="text-lg text-text-muted leading-relaxed max-w-lg mb-6"
             >
               Helping traders master the markets with knowledge, strategy, and
               psychology. Build consistency. Build confidence. Build wealth.
             </motion.p>
+
+            {/* Webinar Highlight */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.45 }}
+              className="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl border border-accent-red/40 bg-accent-red/10 mb-8 max-w-lg glow-red-subtle"
+            >
+              <div className="w-2.5 h-2.5 rounded-full bg-accent-red animate-pulse flex-shrink-0" />
+              <span className="text-sm font-medium text-text-primary">
+                <span className="font-bold text-accent-red mr-1">COMING SOON:</span> 
+                We will launch live webinars on both <strong className="text-white">trading</strong> and <strong className="text-white">IPO investing</strong>!
+              </span>
+            </motion.div>
 
             {/* CTA Buttons */}
             <motion.div

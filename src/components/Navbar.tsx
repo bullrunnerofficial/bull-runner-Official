@@ -9,15 +9,16 @@ import {
   TrendingUp,
   ArrowRight,
 } from "lucide-react";
+import Link from "next/link";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Results", href: "#results" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Results", href: "/results" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -50,7 +51,7 @@ export default function Navbar() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-18 items-center justify-between">
             {/* Logo */}
-            <a href="#home" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-10 h-10 overflow-hidden flex-shrink-0">
                 <Image
                   src="/logo.png"
@@ -68,30 +69,30 @@ export default function Navbar() {
                   Trade. Learn. Earn.
                 </span>
               </div>
-            </a>
+            </Link>
 
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   className="px-3.5 py-2 text-sm font-medium text-text-muted hover:text-text-primary transition-colors duration-200 rounded-lg hover:bg-white/[0.04]"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
 
             {/* CTA + Mobile Toggle */}
             <div className="flex items-center gap-3">
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-accent-blue hover:bg-accent-blue-light text-white btn-glow-blue transition-all"
               >
                 Join Community
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
                 className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl border border-border-subtle text-text-muted hover:text-text-primary hover:border-border-hover transition-colors"
@@ -143,27 +144,30 @@ export default function Navbar() {
               </div>
               <div className="flex flex-col p-5 gap-1">
                 {navLinks.map((link, i) => (
-                  <motion.a
+                  <Link
                     key={link.label}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
                     className="px-4 py-3 text-base font-medium text-text-muted hover:text-text-primary hover:bg-white/[0.04] rounded-xl transition-colors"
                   >
-                    {link.label}
-                  </motion.a>
+                    <motion.span
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05 }}
+                    >
+                      {link.label}
+                    </motion.span>
+                  </Link>
                 ))}
                 <div className="mt-4 pt-4 border-t border-border-subtle">
-                  <a
-                    href="#contact"
+                  <Link
+                    href="/contact"
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center justify-center gap-2 w-full px-5 py-3 text-sm font-semibold rounded-xl bg-accent-blue hover:bg-accent-blue-light text-white transition-all"
                   >
                     Join Community
                     <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>

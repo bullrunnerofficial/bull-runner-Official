@@ -1,6 +1,7 @@
 "use client";
 
 import { TrendingUp } from "lucide-react";
+import Link from "next/link";
 import {
   InstagramIcon,
   YoutubeIcon,
@@ -9,12 +10,12 @@ import {
 } from "./SocialIcons";
 
 const quickLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Results", href: "#results" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Results", href: "/results" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const resources = [
@@ -47,7 +48,7 @@ export default function Footer() {
           {/* Brand Block */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2 pr-4">
             {/* Logo */}
-            <a href="#home" className="flex items-center gap-2.5 mb-5">
+            <Link href="/" className="flex items-center gap-2.5 mb-5">
               <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-accent-blue/10 border border-accent-blue/20">
                 <TrendingUp className="w-5 h-5 text-accent-blue" />
               </div>
@@ -59,7 +60,7 @@ export default function Footer() {
                   Trade. Learn. Earn.
                 </span>
               </div>
-            </a>
+            </Link>
             <p className="text-sm text-text-muted leading-relaxed max-w-xs mb-6">
               Empowering traders with knowledge, strategy and the right mindset
               to achieve financial freedom. Join the movement.
@@ -91,12 +92,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-text-muted hover:text-text-primary transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -139,6 +140,13 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+        </div>
+
+        {/* Disclaimer Section */}
+        <div className="py-8 border-t border-border-subtle">
+          <p className="text-xs text-text-dim leading-relaxed text-center max-w-5xl mx-auto">
+            <strong className="text-text-muted">Disclaimer: We are not SEBI Registered.</strong> The content provided through my social media handles and this website is for informational and educational purposes only. Futures and Options (F&O) trading involves significant risk and is not suitable for all investors. You are solely responsible for your own investment and trading decisions. All investments carry risk, and past performance is not indicative of future results. Please consult with your financial advisor before taking any financial decisions.
+          </p>
         </div>
 
         {/* Bottom Bar */}
