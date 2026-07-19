@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { MouseEvent } from "react";
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { Users, Clock, TrendingUp, Brain } from "lucide-react";
 
 const stats = [
@@ -30,6 +31,63 @@ const stats = [
   },
 ];
 
+function SpotlightCard({ stat }: { stat: typeof stats[0] }) {
+  let mouseX = useMotionValue(0);
+  let mouseY = useMotionValue(0);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
+    let { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
+  const glowRgb = stat.glowColor === "red" ? "255, 45, 61" : "37, 99, 235";
+
+  return (
+    <div
+      onMouseMove={handleMouseMove}
+      className="glass-card p-6 md:p-8 rounded-2xl text-center group cursor-default relative overflow-hidden"
+    >
+      <motion.div
+        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-300 group-hover:opacity-100 z-0"
+        style={{
+          background: useMotionTemplate`
+            radial-gradient(
+              300px circle at ${mouseX}px ${mouseY}px,
+              rgba(${glowRgb}, 0.15),
+              transparent 80%
+            )
+          `,
+        }}
+      />
+      
+      <div className="relative z-10">
+        <div
+          className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 transition-colors ${
+            stat.glowColor === "red"
+              ? "bg-accent-red/10 group-hover:bg-accent-red/15"
+              : "bg-accent-blue/10 group-hover:bg-accent-blue/15"
+          }`}
+        >
+          <stat.icon
+            className={`w-6 h-6 ${
+              stat.glowColor === "red"
+                ? "text-accent-red"
+                : "text-accent-blue"
+            }`}
+          />
+        </div>
+        <p className="text-3xl md:text-4xl font-extrabold text-text-primary mb-1">
+          {stat.number}
+        </p>
+        <p className="text-sm text-text-muted font-medium">
+          {stat.label}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function Stats() {
   return (
     <section className="relative py-16 md:py-20">
@@ -43,33 +101,8 @@ export default function Stats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className={`glass-card p-6 md:p-8 rounded-2xl text-center group cursor-default ${
-                stat.glowColor === "red"
-                  ? "hover:shadow-[0_0_30px_rgba(255,45,61,0.1)]"
-                  : "hover:shadow-[0_0_30px_rgba(37,99,235,0.1)]"
-              }`}
             >
-              <div
-                className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 transition-colors ${
-                  stat.glowColor === "red"
-                    ? "bg-accent-red/10 group-hover:bg-accent-red/15"
-                    : "bg-accent-blue/10 group-hover:bg-accent-blue/15"
-                }`}
-              >
-                <stat.icon
-                  className={`w-6 h-6 ${
-                    stat.glowColor === "red"
-                      ? "text-accent-red"
-                      : "text-accent-blue"
-                  }`}
-                />
-              </div>
-              <p className="text-3xl md:text-4xl font-extrabold text-text-primary mb-1">
-                {stat.number}
-              </p>
-              <p className="text-sm text-text-muted font-medium">
-                {stat.label}
-              </p>
+              <SpotlightCard stat={stat} />
             </motion.div>
           ))}
         </div>

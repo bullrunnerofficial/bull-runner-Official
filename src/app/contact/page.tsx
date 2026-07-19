@@ -6,12 +6,37 @@ import { Mail, Send, MessageSquare } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
-    setTimeout(() => setStatus("sent"), 1500);
+
+    const formData = new FormData(e.currentTarget);
+    // TODO: Replace with your actual Web3Forms access key
+    formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY_HERE");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("sent");
+        (e.target as HTMLFormElement).reset();
+        setTimeout(() => setStatus("idle"), 5000); // Reset button after 5s
+      } else {
+        setStatus("error");
+        setErrorMessage(data.message || "Something went wrong.");
+      }
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage("Failed to send message. Please try again.");
+    }
   };
 
   return (
@@ -38,8 +63,8 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-lg font-bold text-text-primary mb-2">Email Us</h3>
                 <p className="text-sm text-text-muted mb-4">We usually respond within 24 hours.</p>
-                <a href="mailto:hello@bullrunner.com" className="text-accent-blue font-semibold hover:text-accent-blue-light transition-colors">
-                  hello@bullrunner.com
+                <a href="mailto:bullrunnerofficial@gmail.com" className="text-accent-blue font-semibold hover:text-accent-blue-light transition-colors">
+                  bullrunnerofficial@gmail.com
                 </a>
               </div>
 
@@ -61,11 +86,15 @@ export default function ContactPage() {
                 <div className="absolute top-0 right-0 w-64 h-64 bg-accent-blue/5 rounded-full blur-[80px]" />
                 
                 <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
+                  {/* Honeypot Spam Protection */}
+                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium text-text-primary">Your Name</label>
                       <input 
                         type="text" 
+                        name="name"
                         id="name"
                         required
                         className="w-full bg-navy-900/50 border border-border-subtle rounded-xl px-4 py-3 text-text-primary placeholder:text-text-dim focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue transition-all"
@@ -76,6 +105,7 @@ export default function ContactPage() {
                       <label htmlFor="email" className="text-sm font-medium text-text-primary">Email Address</label>
                       <input 
                         type="email" 
+                        name="email"
                         id="email"
                         required
                         className="w-full bg-navy-900/50 border border-border-subtle rounded-xl px-4 py-3 text-text-primary placeholder:text-text-dim focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue transition-all"
@@ -87,6 +117,7 @@ export default function ContactPage() {
                   <div className="space-y-2">
                     <label htmlFor="subject" className="text-sm font-medium text-text-primary">Subject</label>
                     <select 
+                      name="subject"
                       id="subject"
                       className="w-full bg-navy-900/50 border border-border-subtle rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue transition-all appearance-none"
                     >
@@ -99,6 +130,7 @@ export default function ContactPage() {
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium text-text-primary">Message</label>
                     <textarea 
+                      name="message"
                       id="message"
                       required
                       rows={5}

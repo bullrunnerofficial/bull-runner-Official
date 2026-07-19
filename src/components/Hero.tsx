@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   CalendarCheck,
@@ -14,6 +14,10 @@ import {
 } from "./SocialIcons";
 
 export default function Hero() {
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 1000], [0, 300]);
+  const y2 = useTransform(scrollY, [0, 1000], [0, -150]);
+
   return (
     <section
       id="home"
@@ -21,12 +25,17 @@ export default function Hero() {
     >
       {/* Background Elements */}
       <div className="absolute inset-0 chart-grid-bg opacity-40" />
-      <div className="ambient-glow-blue -top-20 -left-40 opacity-50" />
-      <div className="ambient-glow-red top-1/3 -right-20 opacity-30" />
-      <div className="ambient-glow-blue bottom-0 right-1/4 opacity-20" />
+      <motion.div style={{ y: y2 }} className="absolute inset-0 pointer-events-none">
+        <div className="ambient-glow-blue -top-20 -left-40 opacity-50" />
+        <div className="ambient-glow-red top-1/3 -right-20 opacity-30" />
+        <div className="ambient-glow-blue bottom-0 right-1/4 opacity-20" />
+      </motion.div>
 
-      {/* Candlestick SVG Overlay */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Candlestick SVG Overlay (Parallax) */}
+      <motion.div 
+        style={{ y: y1 }}
+        className="absolute inset-0 overflow-hidden pointer-events-none"
+      >
         <svg
           className="absolute right-0 top-0 w-full h-full opacity-[0.04]"
           viewBox="0 0 1200 800"
@@ -63,7 +72,7 @@ export default function Hero() {
             opacity="0.6"
           />
         </svg>
-      </div>
+      </motion.div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -131,14 +140,14 @@ export default function Hero() {
               className="flex flex-wrap gap-4 mb-8"
             >
               <a
-                href="#contact"
+                href="https://instagram.com/bullrunner__official"
                 className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-bold rounded-xl bg-accent-blue hover:bg-accent-blue-light text-white btn-glow-blue transition-all"
               >
                 Join Our Community
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
-                href="#contact"
+                href="https://www.instagram.com/direct/t/17849312540502521/"
                 className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-bold rounded-xl border border-border-subtle bg-white/[0.03] hover:bg-white/[0.06] text-text-primary hover:border-border-hover transition-all"
               >
                 Book Consultation

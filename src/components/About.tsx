@@ -96,9 +96,9 @@ export default function About() {
           {/* Heading */}
           <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
             <span className="text-accent-red block text-xl mb-3 tracking-wide uppercase font-bold">Welcome to BULL RUNNER</span>
-            <span className="text-text-primary">Trader. Mentor.</span>
+            <span className="text-text-primary">Trader Mentor </span>
             <br />
-            <span className="gradient-text-red">Market Analyst.</span>
+            <span className="gradient-text-red">Market Analyst</span>
           </h2>
 
           {/* Paragraph */}

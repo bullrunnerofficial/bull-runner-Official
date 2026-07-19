@@ -61,9 +61,7 @@ export default function Navbar() {
                 <span className="text-lg font-bold tracking-wide text-text-primary">
                   BULL <span className="text-accent-blue">RUNNER</span>
                 </span>
-                <span className="text-[10px] font-medium tracking-[0.2em] text-text-muted uppercase">
-                  Trade. Learn. Earn.
-                </span>
+                
               </div>
             </Link>
 

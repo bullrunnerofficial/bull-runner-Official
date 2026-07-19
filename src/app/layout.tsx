@@ -32,6 +32,7 @@ export const metadata: Metadata = {
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import MarketTicker from "@/components/MarketTicker";
 
 export default function RootLayout({
   children,
@@ -40,10 +41,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans w-full overflow-x-hidden">
+      <body className="min-h-full flex flex-col font-sans w-full overflow-x-hidden pb-10">
         <Navbar />
         {children}
         <Footer />
+        <MarketTicker />
       </body>
     </html>
   );
