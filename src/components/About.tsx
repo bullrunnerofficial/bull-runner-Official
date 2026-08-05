@@ -150,7 +150,7 @@ export default function About() {
 
           {/* CTA */}
           <a
-            href="#contact"
+            href="/contact"
             className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-bold rounded-xl border border-accent-blue/40 bg-accent-blue/10 text-accent-blue-light hover:bg-accent-blue/20 hover:border-accent-blue/60 transition-all group"
           >
             Know More About Me
