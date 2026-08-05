@@ -54,7 +54,7 @@ export default function Footer() {
                   BULL <span className="text-accent-blue">RUNNER</span>
                 </span>
                 <span className="text-[10px] font-medium tracking-[0.2em] text-text-muted uppercase">
-                  Trade. Learn. Earn.
+                  Learn - Trade - Earn
                 </span>
               </div>
             </Link>
