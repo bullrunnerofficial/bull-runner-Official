@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Bull Runner | Premium Trading Mentorship",
+  title: "Bull Runner — Trade. Learn. Earn. | Premium Trading Mentorship",
   description:
     "Bull Runner is a premium trading educator and market mentor helping traders master strategy, psychology, risk management, and disciplined execution for consistent profitability.",
   keywords: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "Bull Runner",
   ],
   openGraph: {
-    title: "Bull Runner",
+    title: "Bull Runner — Trade. Learn. Earn.",
     description:
       "Master the markets with strategy, psychology, and disciplined execution.",
     type: "website",
