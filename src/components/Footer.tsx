@@ -54,35 +54,39 @@ export default function Footer() {
                   BULL <span className="text-accent-blue">RUNNER</span>
                 </span>
                 <span className="text-[10px] font-medium tracking-[0.2em] text-text-muted uppercase">
-                  Learn - Trade - Earn
-                </span>
-              </div>
-            </Link>
-            <p className="text-sm text-text-muted leading-relaxed max-w-xs mb-6">
-              Empowering traders with knowledge, strategy and the right mindset
-              to achieve financial freedom. Join the movement.
-            </p>
+<<<<<<< HEAD
+  Learn - Trade - Earn
+=======
+                  
+>>>>>>> e884672 (Update footer)
+                </span >
+              </div >
+            </Link >
+    <p className="text-sm text-text-muted leading-relaxed max-w-xs mb-6">
+      Empowering traders with knowledge, strategy and the right mindset
+      to achieve financial freedom. Join the movement.
+    </p>
 
-            {/* Social Icons */}
-            <div className="flex items-center gap-2.5">
-              <span className="text-xs text-text-dim font-medium mr-1">
-                Let&apos;s Connect
-              </span>
-              {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="flex items-center justify-center w-9 h-9 rounded-lg border border-border-subtle bg-white/[0.02] text-text-muted hover:text-accent-blue hover:border-accent-blue/30 hover:bg-accent-blue/5 transition-all"
-                >
-                  <social.icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
-          </div>
+  {/* Social Icons */ }
+  <div className="flex items-center gap-2.5">
+    <span className="text-xs text-text-dim font-medium mr-1">
+      Let&apos;s Connect
+    </span>
+    {socials.map((social) => (
+      <a
+        key={social.label}
+        href={social.href}
+        aria-label={social.label}
+        className="flex items-center justify-center w-9 h-9 rounded-lg border border-border-subtle bg-white/[0.02] text-text-muted hover:text-accent-blue hover:border-accent-blue/30 hover:bg-accent-blue/5 transition-all"
+      >
+        <social.icon className="w-4 h-4" />
+      </a>
+    ))}
+  </div>
+          </div >
 
-          {/* Quick Links */}
-          <div>
+    {/* Quick Links */ }
+    < div >
             <h4 className="text-sm font-bold text-text-primary mb-5 tracking-wide">
               Quick Links
             </h4>
@@ -98,10 +102,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div >
 
-          {/* Resources */}
-          <div>
+    {/* Resources */ }
+    < div >
             <h4 className="text-sm font-bold text-text-primary mb-5 tracking-wide">
               Resources
             </h4>
@@ -117,10 +121,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div >
 
-          {/* Support */}
-          <div>
+    {/* Support */ }
+    < div >
             <h4 className="text-sm font-bold text-text-primary mb-5 tracking-wide">
               Support
             </h4>
@@ -136,26 +140,26 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
+          </div >
+        </div >
 
-        {/* Disclaimer Section */}
-        <div className="py-8 border-t border-border-subtle">
-          <p className="text-xs text-text-dim leading-relaxed text-center max-w-5xl mx-auto">
-            <strong className="text-text-muted">Disclaimer: We are not SEBI Registered.</strong> The content provided through my social media handles and this website is for informational and educational purposes only. Futures and Options (F&O) trading involves significant risk and is not suitable for all investors. You are solely responsible for your own investment and trading decisions. All investments carry risk, and past performance is not indicative of future results. Please consult with your financial advisor before taking any financial decisions.
-          </p>
-        </div>
+    {/* Disclaimer Section */ }
+    < div className = "py-8 border-t border-border-subtle" >
+      <p className="text-xs text-text-dim leading-relaxed text-center max-w-5xl mx-auto">
+        <strong className="text-text-muted">Disclaimer: We are not SEBI Registered.</strong> The content provided through my social media handles and this website is for informational and educational purposes only. Futures and Options (F&O) trading involves significant risk and is not suitable for all investors. You are solely responsible for your own investment and trading decisions. All investments carry risk, and past performance is not indicative of future results. Please consult with your financial advisor before taking any financial decisions.
+      </p>
+        </div >
 
-        {/* Bottom Bar */}
-        <div className="border-t border-border-subtle py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    {/* Bottom Bar */ }
+    < div className = "border-t border-border-subtle py-6 flex flex-col sm:flex-row items-center justify-between gap-4" >
           <p className="text-xs text-text-dim">
             © {new Date().getFullYear()} Bull Runner. All rights reserved.
           </p>
           <p className="text-xs text-text-dim">
             Built with discipline. Powered by the markets.
           </p>
-        </div>
-      </div>
-    </footer>
+        </div >
+      </div >
+    </footer >
   );
 }
