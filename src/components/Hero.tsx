@@ -11,6 +11,7 @@ import {
   YoutubeIcon,
   TelegramIcon,
   TwitterIcon,
+  DhanIcon,
 } from "./SocialIcons";
 
 export default function Hero() {
