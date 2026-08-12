@@ -10,6 +10,59 @@ import {
   TwitterIcon,
 } from "./SocialIcons";
 
+type SocialIconComponent = React.ComponentType<{
+  className?: string;
+}>;
+
+type IconSocial = {
+  type: "icon";
+  icon: SocialIconComponent;
+  href: string;
+  label: string;
+};
+
+type ImageSocial = {
+  type: "image";
+  image: string;
+  href: string;
+  label: string;
+};
+
+type Social = IconSocial | ImageSocial;
+
+const socials: Social[] = [
+  {
+    type: "icon",
+    icon: InstagramIcon,
+    href: "https://instagram.com/bullrunner__official",
+    label: "Instagram",
+  },
+  {
+    type: "icon",
+    icon: YoutubeIcon,
+    href: "#",
+    label: "YouTube",
+  },
+  {
+    type: "icon",
+    icon: TelegramIcon,
+    href: "#",
+    label: "Telegram",
+  },
+  {
+    type: "icon",
+    icon: TwitterIcon,
+    href: "#",
+    label: "Twitter",
+  },
+  {
+    type: "image",
+    image: "/dhan-logo.png",
+    href: "https://join.dhan.co/?invite=MQWCV61490",
+    label: "Dhan",
+  },
+];
+
 export default function Hero() {
   const { scrollY } = useScroll();
 
@@ -351,33 +404,7 @@ export default function Hero() {
                 Connect with me:
               </span>
 
-              {[
-                {
-                  icon: InstagramIcon,
-                  href: "https://instagram.com/bullrunner__official",
-                  label: "Instagram",
-                },
-                {
-                  icon: YoutubeIcon,
-                  href: "#",
-                  label: "YouTube",
-                },
-                {
-                  icon: TelegramIcon,
-                  href: "#",
-                  label: "Telegram",
-                },
-                {
-                  icon: TwitterIcon,
-                  href: "#",
-                  label: "Twitter",
-                },
-                {
-                  image: "/dhan-logo.png",
-                  href: "https://join.dhan.co/?invite=MQWCV61490",
-                  label: "Dhan",
-                },
-              ].map((social) => (
+              {socials.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
@@ -386,7 +413,7 @@ export default function Hero() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center w-10 h-10 rounded-xl border border-border-subtle bg-white/[0.02] text-text-muted hover:text-accent-blue hover:border-accent-blue/30 hover:bg-accent-blue/5 transition-all overflow-hidden"
                 >
-                  {"image" in social ? (
+                  {social.type === "image" ? (
                     <Image
                       src={social.image}
                       alt={social.label}
