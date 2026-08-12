@@ -170,6 +170,7 @@ export default function Hero() {
                 { icon: YoutubeIcon, href: "#", label: "YouTube" },
                 { icon: TelegramIcon, href: "#", label: "Telegram" },
                 { icon: TwitterIcon, href: "#", label: "Twitter" },
+                { icon: DhanIcon, href: "#", label: "Dhan" },
               ].map((social) => (
                 <a
                   key={social.label}
