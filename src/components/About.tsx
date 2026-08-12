@@ -110,7 +110,7 @@ export default function About() {
           </h2>
 
           {/* Main Paragraph */}
-          <p className="text-text-muted text-lg leading-relaxed mb-4">
+          <p className="text-text-muted text-lg leading-relaxed mb-4 text-justify [text-align-last:left]">
             I am a stock market trader and IPO investor with a strong interest
             in financial markets and wealth creation. My investment philosophy
             combines technical analysis, fundamental research, and disciplined
