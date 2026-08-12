@@ -374,8 +374,6 @@ export default function Hero() {
                   href: "#",
                   label: "Twitter",
                 },
-
-                {/* Dhan Referral Link */}
                 {
                   icon: DhanIcon,
                   href: "https://join.dhan.co/?invite=MQWCV61490",
