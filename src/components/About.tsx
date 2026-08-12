@@ -102,10 +102,14 @@ export default function About() {
           </h2>
 
           {/* Paragraph */}
-          <p className="text-text-muted text-lg leading-relaxed mb-4 max-w-lg">
-            I am a stock market trader and IPO investor with a strong interest in financial markets and wealth creation. My investment philosophy combines technical analysis, fundamental research, and disciplined risk management to identify high-potential opportunities.
+          <p className="text-text-muted text-lg leading-relaxed mb-4">
+            I am a stock market trader and IPO investor with a strong interest in
+            financial markets and wealth creation. My investment philosophy combines
+            technical analysis, fundamental research, and disciplined risk management
+            to identify high-potential opportunities.
           </p>
-          <p className="text-text-muted text-base leading-relaxed mb-8 max-w-lg">
+          
+          <p className="text-text-muted text-base leading-relaxed mb-8">
             We primarily focus on <span className="text-accent-blue font-semibold">Quick gains</span>. Quick gains are possible in two ways:
             <br />
             <span className="inline-block mt-2 font-medium text-text-primary">1. Trading</span>
