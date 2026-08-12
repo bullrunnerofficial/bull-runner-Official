@@ -2,20 +2,17 @@
 
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import {
-  ArrowRight,
-  CalendarCheck,
-} from "lucide-react";
+import { ArrowRight, CalendarCheck } from "lucide-react";
 import {
   InstagramIcon,
   YoutubeIcon,
   TelegramIcon,
   TwitterIcon,
-  DhanIcon,
 } from "./SocialIcons";
 
 export default function Hero() {
   const { scrollY } = useScroll();
+
   const y1 = useTransform(scrollY, [0, 1000], [0, 300]);
   const y2 = useTransform(scrollY, [0, 1000], [0, -150]);
 
@@ -36,7 +33,7 @@ export default function Hero() {
         <div className="ambient-glow-blue bottom-0 right-1/4 opacity-20" />
       </motion.div>
 
-      {/* Candlestick SVG Overlay (Parallax) */}
+      {/* Candlestick SVG Overlay */}
       <motion.div
         style={{ y: y1 }}
         className="absolute inset-0 overflow-hidden pointer-events-none"
@@ -244,10 +241,11 @@ export default function Hero() {
         </svg>
       </motion.div>
 
+      {/* Main Container */}
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
-          {/* Left Side — Text Content */}
+          {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -375,7 +373,7 @@ export default function Hero() {
                   label: "Twitter",
                 },
                 {
-                  icon: DhanIcon,
+                  image: "/dhan-logo.png",
                   href: "https://join.dhan.co/?invite=MQWCV61490",
                   label: "Dhan",
                 },
@@ -386,15 +384,25 @@ export default function Hero() {
                   aria-label={social.label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 rounded-xl border border-border-subtle bg-white/[0.02] text-text-muted hover:text-accent-blue hover:border-accent-blue/30 hover:bg-accent-blue/5 transition-all"
+                  className="flex items-center justify-center w-10 h-10 rounded-xl border border-border-subtle bg-white/[0.02] text-text-muted hover:text-accent-blue hover:border-accent-blue/30 hover:bg-accent-blue/5 transition-all overflow-hidden"
                 >
-                  <social.icon className="w-4 h-4" />
+                  {"image" in social ? (
+                    <Image
+                      src={social.image}
+                      alt={social.label}
+                      width={22}
+                      height={22}
+                      className="w-[22px] h-[22px] object-contain"
+                    />
+                  ) : (
+                    <social.icon className="w-4 h-4" />
+                  )}
                 </a>
               ))}
             </motion.div>
           </motion.div>
 
-          {/* Right Side — Hero Image */}
+          {/* RIGHT SIDE — HERO IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -409,7 +417,6 @@ export default function Hero() {
               {/* Glow Background */}
               <div className="absolute inset-0 rounded-3xl">
                 <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent-blue/20 rounded-full blur-[80px]" />
-
                 <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent-red/15 rounded-full blur-[60px]" />
               </div>
 
@@ -417,16 +424,17 @@ export default function Hero() {
               <div className="relative rounded-3xl overflow-hidden aspect-[4/3] w-full">
                 <Image
                   src="/hero-image.png"
-                  alt="Bull Runner — Trader, Mentor, Market Analyst with bull and candlestick charts"
+                  alt="Bull Runner — Trader, Mentor and Market Analyst"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover rounded-3xl"
                   priority
                 />
 
-                {/* Subtle overlay to blend edges */}
+                {/* Left Blend */}
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-l from-transparent via-transparent to-navy-900/30 pointer-events-none" />
 
+                {/* Bottom Blend */}
                 <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-navy-900/60 to-transparent pointer-events-none" />
               </div>
 
@@ -454,7 +462,7 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* Floating Badge — Top Right */}
+              {/* Floating Badge */}
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -474,12 +482,13 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom gradient fade */}
+      {/* Bottom Gradient Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-900 to-transparent pointer-events-none" />
     </section>
   );
 }
 
+/* Trending Up Icon */
 function TrendingUpIcon({ className }: { className?: string }) {
   return (
     <svg
