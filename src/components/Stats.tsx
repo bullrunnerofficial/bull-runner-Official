@@ -19,7 +19,7 @@ const stats = [
   },
   {
     icon: TrendingUp,
-    number: "₹50K→25L",
+    number: "₹50K → 25L",
     label: "Personal Journey",
     glowColor: "red",
   },
@@ -60,7 +60,7 @@ function SpotlightCard({ stat }: { stat: typeof stats[0] }) {
           `,
         }}
       />
-      
+
       <div className="relative z-10">
         <div
           className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 transition-colors ${
@@ -77,9 +77,17 @@ function SpotlightCard({ stat }: { stat: typeof stats[0] }) {
             }`}
           />
         </div>
-        <p className="text-3xl md:text-4xl font-extrabold text-text-primary mb-1">
+
+        <p
+          className={`font-extrabold text-text-primary mb-1 ${
+            stat.label === "Personal Journey"
+              ? "text-2xl sm:text-3xl md:text-4xl whitespace-nowrap"
+              : "text-3xl md:text-4xl"
+          }`}
+        >
           {stat.number}
         </p>
+
         <p className="text-sm text-text-muted font-medium">
           {stat.label}
         </p>
