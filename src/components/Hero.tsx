@@ -478,7 +478,7 @@ export default function Hero() {
                   </div>
 
                   <div>
-                    <p className="text-xl font-bold text-text-primary">
+                    <p className="text-lg font-bold text-text-primary">
                       ₹50K → ₹25L
                     </p>
 
