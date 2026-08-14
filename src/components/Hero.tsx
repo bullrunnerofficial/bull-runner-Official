@@ -58,7 +58,7 @@ const socials: Social[] = [
   {
     type: "image",
     image: "/dhan-logo.png",
-    href: "https://join.dhan.co/?invite=MQWCV61490",
+    href: "https://invite.dhan.co/?invite=MQWCV61490",
     label: "Dhan",
   },
 ];
