@@ -14,43 +14,29 @@ type SocialIconComponent = React.ComponentType<{
   className?: string;
 }>;
 
-type IconSocial = {
-  type: "icon";
+type Social = {
   icon: SocialIconComponent;
   href: string;
   label: string;
 };
 
-type ImageSocial = {
-  type: "image";
-  image: string;
-  href: string;
-  label: string;
-};
-
-type Social = IconSocial | ImageSocial;
-
 const socials: Social[] = [
   {
-    type: "icon",
     icon: InstagramIcon,
     href: "https://instagram.com/bullrunner__official",
     label: "Instagram",
   },
   {
-    type: "icon",
     icon: YoutubeIcon,
     href: "#",
     label: "YouTube",
   },
   {
-    type: "icon",
     icon: TelegramIcon,
     href: "#",
     label: "Telegram",
   },
   {
-    type: "icon",
     icon: TwitterIcon,
     href: "#",
     label: "Twitter",
@@ -91,14 +77,7 @@ export default function Hero() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <line
-            x1="100"
-            y1="200"
-            x2="100"
-            y2="600"
-            stroke="#2563EB"
-            strokeWidth="1"
-          />
+          <line x1="100" y1="200" x2="100" y2="600" stroke="#2563EB" />
           <rect
             x="90"
             y="300"
@@ -108,14 +87,7 @@ export default function Hero() {
             rx="2"
           />
 
-          <line
-            x1="200"
-            y1="150"
-            x2="200"
-            y2="550"
-            stroke="#FF2D3D"
-            strokeWidth="1"
-          />
+          <line x1="200" y1="150" x2="200" y2="550" stroke="#FF2D3D" />
           <rect
             x="190"
             y="200"
@@ -125,14 +97,7 @@ export default function Hero() {
             rx="2"
           />
 
-          <line
-            x1="300"
-            y1="250"
-            x2="300"
-            y2="500"
-            stroke="#2563EB"
-            strokeWidth="1"
-          />
+          <line x1="300" y1="250" x2="300" y2="500" stroke="#2563EB" />
           <rect
             x="290"
             y="280"
@@ -142,14 +107,7 @@ export default function Hero() {
             rx="2"
           />
 
-          <line
-            x1="400"
-            y1="180"
-            x2="400"
-            y2="520"
-            stroke="#2563EB"
-            strokeWidth="1"
-          />
+          <line x1="400" y1="180" x2="400" y2="520" stroke="#2563EB" />
           <rect
             x="390"
             y="220"
@@ -159,14 +117,7 @@ export default function Hero() {
             rx="2"
           />
 
-          <line
-            x1="500"
-            y1="300"
-            x2="500"
-            y2="600"
-            stroke="#FF2D3D"
-            strokeWidth="1"
-          />
+          <line x1="500" y1="300" x2="500" y2="600" stroke="#FF2D3D" />
           <rect
             x="490"
             y="350"
@@ -176,14 +127,7 @@ export default function Hero() {
             rx="2"
           />
 
-          <line
-            x1="600"
-            y1="200"
-            x2="600"
-            y2="480"
-            stroke="#2563EB"
-            strokeWidth="1"
-          />
+          <line x1="600" y1="200" x2="600" y2="480" stroke="#2563EB" />
           <rect
             x="590"
             y="240"
@@ -193,14 +137,7 @@ export default function Hero() {
             rx="2"
           />
 
-          <line
-            x1="700"
-            y1="280"
-            x2="700"
-            y2="550"
-            stroke="#FF2D3D"
-            strokeWidth="1"
-          />
+          <line x1="700" y1="280" x2="700" y2="550" stroke="#FF2D3D" />
           <rect
             x="690"
             y="320"
@@ -210,14 +147,7 @@ export default function Hero() {
             rx="2"
           />
 
-          <line
-            x1="800"
-            y1="150"
-            x2="800"
-            y2="450"
-            stroke="#2563EB"
-            strokeWidth="1"
-          />
+          <line x1="800" y1="150" x2="800" y2="450" stroke="#2563EB" />
           <rect
             x="790"
             y="200"
@@ -227,14 +157,7 @@ export default function Hero() {
             rx="2"
           />
 
-          <line
-            x1="900"
-            y1="220"
-            x2="900"
-            y2="500"
-            stroke="#2563EB"
-            strokeWidth="1"
-          />
+          <line x1="900" y1="220" x2="900" y2="500" stroke="#2563EB" />
           <rect
             x="890"
             y="260"
@@ -244,14 +167,7 @@ export default function Hero() {
             rx="2"
           />
 
-          <line
-            x1="1000"
-            y1="180"
-            x2="1000"
-            y2="480"
-            stroke="#FF2D3D"
-            strokeWidth="1"
-          />
+          <line x1="1000" y1="180" x2="1000" y2="480" stroke="#FF2D3D" />
           <rect
             x="990"
             y="230"
@@ -261,14 +177,7 @@ export default function Hero() {
             rx="2"
           />
 
-          <line
-            x1="1100"
-            y1="250"
-            x2="1100"
-            y2="520"
-            stroke="#2563EB"
-            strokeWidth="1"
-          />
+          <line x1="1100" y1="250" x2="1100" y2="520" stroke="#2563EB" />
           <rect
             x="1090"
             y="290"
@@ -398,28 +307,22 @@ export default function Hero() {
                 Connect with me:
               </span>
 
-              {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 rounded-xl border border-border-subtle bg-white/[0.02] text-text-muted hover:text-accent-blue hover:border-accent-blue/30 hover:bg-accent-blue/5 transition-all overflow-hidden"
-                >
-                  {social.type === "image" ? (
-                    <Image
-                      src={social.image}
-                      alt={social.label}
-                      width={22}
-                      height={22}
-                      className="w-[22px] h-[22px] object-contain"
-                    />
-                  ) : (
-                    <social.icon className="w-4 h-4" />
-                  )}
-                </a>
-              ))}
+              {socials.map((social) => {
+                const Icon = social.icon;
+
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-10 h-10 rounded-xl border border-border-subtle bg-white/[0.02] text-text-muted hover:text-accent-blue hover:border-accent-blue/30 hover:bg-accent-blue/5 transition-all"
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                );
+              })}
             </motion.div>
           </motion.div>
 
