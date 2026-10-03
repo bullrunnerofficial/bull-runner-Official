@@ -55,12 +55,6 @@ const socials: Social[] = [
     href: "#",
     label: "Twitter",
   },
-  {
-    type: "image",
-    image: "/dhan-logo.png",
-    href: "https://invite.dhan.co/?invite=MQWCV61490",
-    label: "Dhan",
-  },
 ];
 
 export default function Hero() {
